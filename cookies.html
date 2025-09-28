@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique Cookies | NovaPixel Studio</title>
+    <meta name="description" content="Politique cookies de NovaPixel Studio - Gestion des cookies, traceurs et protection de votre navigation.">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-solid: #667eea;
+            --dark: #1a202c;
+            --light: #ffffff;
+            --bg-light: #f8f9fa;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --warning: #ed8936;
+            --info: #3182ce;
+            --radius: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --glass: rgba(255,255,255,0.98);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary-solid);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+            min-height: 80vh;
+        }
+
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--text-primary);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--gray-light);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .cookie-type {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .cookie-essential {
+            border-left-color: var(--info);
+        }
+
+        .cookie-analytics {
+            border-left-color: var(--warning);
+        }
+
+        .cookie-type h3 {
+            margin-top: 0;
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .cookie-table th,
+        .cookie-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cookie-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cookie-table td {
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-solid);
+        }
+
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+
+        .browser-guide {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 1rem 0;
+        }
+
+        .browser-guide h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .browser-guide a {
+            color: var(--primary-solid);
+            text-decoration: none;
+        }
+
+        .browser-guide a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.05);
+            color: var(--text-primary);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 2rem 1rem;
+                margin: 0 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .cookie-table {
+                font-size: 0.9rem;
+            }
+
+            .cookie-table th,
+            .cookie-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">NovaPixel Studio</a>
+            <a href="/" class="back-link">← Retour à l'accueil</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="legal-content">
+                <h1>Politique Cookies</h1>
+
+                <p><strong>Dernière mise à jour :</strong> 28 septembre 2025</p>
+
+                <h2>1. Qu'est-ce qu'un cookie ?</h2>
+                <p>Un cookie est un petit fichier texte déposé sur votre appareil lors de la visite d'un site web. Il permet de reconnaître votre navigateur et de mémoriser certaines informations vous concernant ou concernant vos préférences.</p>
+
+                <h2>2. Cookies utilisés sur notre site</h2>
+
+                <div class="cookie-type cookie-essential">
+                    <h3>🔐 Cookies techniques (indispensables)</h3>
+                    <p>Ces cookies sont nécessaires au fonctionnement du site et ne peuvent pas être désactivés.</p>
+                    <table class="cookie-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Finalité</th>
+                                <th>Durée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>cookiesConsent</td>
+                                <td>Mémoriser vos préférences cookies</td>
+                                <td>1 an</td>
+                            </tr>
+                            <tr>
+                                <td>PHPSESSID</td>
+                                <td>Maintenir votre session</td>
+                                <td>Session</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="cookie-type cookie-analytics">
+                    <h3>📊 Cookies analytiques (optionnels)</h3>
+                    <p>Ces cookies nous aident à comprendre comment vous utilisez notre site pour l'améliorer.</p>
+                    <table class="cookie-table">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Finalité</th>
+                                <th>Durée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Google Analytics</td>
+                                <td>Mesure d'audience et statistiques</td>
+                                <td>25 mois</td>
+                            </tr>
+                            <tr>
+                                <td>_ga, _gid</td>
+                                <td>Identification des visiteurs uniques</td>
+                                <td>2 ans / 24h</td>
+                            </tr>
+                            <tr>
+                                <td>_gat</td>
+                                <td>Limitation du taux de requêtes</td>
+                                <td>1 minute</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Gestion de vos préférences</h2>
+                <div class="highlight-box">
+                    <p><strong>Vous pouvez modifier vos préférences cookies à tout moment via :</strong></p>
+                    <ul>
+                        <li>Le bandeau cookies affiché lors de votre première visite</li>
+                        <li>Les paramètres de votre navigateur (voir guide ci-dessous)</li>
+                    </ul>
+                </div>
+
+                <h2>4. Configuration par navigateur</h2>
+                <p>Vous pouvez configurer votre navigateur pour refuser ou supprimer les cookies :</p>
+
+                <div class="browser-guide">
+                    <h4>Chrome</h4>
+                    <p>Paramètres → Confidentialité et sécurité → Cookies et autres données de sites</p>
+                    <a href="https://support.google.com/chrome/answer/95647" target="_blank">Guide détaillé Chrome</a>
+                </div>
+
+                <div class="browser-guide">
+                    <h4>Firefox</h4>
+                    <p>Paramètres → Vie privée et sécurité → Cookies et données de sites</p>
+                    <a href="https://support.mozilla.org/fr/kb/activer-desactiver-cookies" target="_blank">Guide détaillé Firefox</a>
+                </div>
+
+                <div class="browser-guide">
+                    <h4>Safari</h4>
+                    <p>Préférences → Confidentialité → Cookies et données de sites web</p>
+                    <a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank">Guide détaillé Safari</a>
+                </div>
+
+                <div class="browser-guide">
+                    <h4>Edge</h4>
+                    <p>Paramètres → Cookies et autorisations de site → Cookies et données stockées</p>
+                    <a href="https://support.microsoft.com/fr-fr/microsoft-edge/supprimer-les-cookies-dans-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">Guide détaillé Edge</a>
+                </div>
+
+                <h2>5. Conséquences du refus</h2>
+                <p>Le refus des cookies peut entraîner :</p>
+                <ul>
+                    <li><strong>Cookies techniques :</strong> dysfonctionnements du site, impossibilité de naviguer normalement</li>
+                    <li><strong>Cookies analytics :</strong> aucun impact sur votre navigation, mais nous perdons des données d'amélioration</li>
+                </ul>
+
+                <h2>6. Cookies tiers</h2>
+                <p>Notre site peut contenir des cookies déposés par des services tiers :</p>
+                <ul>
+                    <li><strong>Google Analytics :</strong> mesure d'audience (Google LLC)</li>
+                    <li><strong>Calendly :</strong> widgets de réservation (Calendly Corporation)</li>
+                </ul>
+
+                <p>Ces services ont leurs propres politiques de cookies :</p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank" style="color: var(--primary-solid);">Politique Google</a></li>
+                    <li><a href="https://calendly.com/privacy" target="_blank" style="color: var(--primary-solid);">Politique Calendly</a></li>
+                </ul>
+
+                <h2>7. Durée de conservation</h2>
+                <p>Les cookies sont conservés pour les durées suivantes :</p>
+                <ul>
+                    <li><strong>Cookies de session :</strong> supprimés à la fermeture du navigateur</li>
+                    <li><strong>Cookies persistants :</strong> entre 24 heures et 25 mois selon leur finalité</li>
+                    <li><strong>Préférences cookies :</strong> 1 an maximum</li>
+                </ul>
+
+                <h2>8. Vos droits</h2>
+                <div class="highlight-box">
+                    <p>Conformément à la réglementation, vous disposez d'un <strong>droit d'opposition</strong> au dépôt de cookies non essentiels.</p>
+                    <p>Pour exercer ce droit ou pour toute question : <a href="mailto:contact@novapixelstudio.com" style="color: var(--primary-solid);">contact@novapixelstudio.com</a></p>
+                </div>
+
+                <h2>9. Contact</h2>
+                <p>Pour toute question relative à cette politique cookies :</p>
+                <ul>
+                    <li><strong>Email :</strong> <a href="mailto:contact@novapixelstudio.com" style="color: var(--primary-solid);">contact@novapixelstudio.com</a></li>
+                    <li><strong>Adresse :</strong> Innovapharm Consulting, 72 rue Jeanne d'Arc, 91300 Massy</li>
+                </ul>
+
+                <h2>10. Modifications</h2>
+                <p>Cette politique peut être mise à jour pour refléter les évolutions de notre site ou de la réglementation. La date de dernière modification est indiquée en haut de cette page.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 NovaPixel Studio. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

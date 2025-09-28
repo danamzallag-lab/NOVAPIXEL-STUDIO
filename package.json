@@ -1,0 +1,29 @@
+{
+  "name": "novapixel-studio",
+  "version": "1.0.0",
+  "description": "Sites web sur-mesure, rapides et abordables - NovaPixel Studio",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000",
+    "build": "echo 'Build complete - ready for deployment'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "web design",
+    "development",
+    "landing page",
+    "site vitrine",
+    "SEO",
+    "performance"
+  ],
+  "author": "NovaPixel Studio",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danamzallag-lab/NOVAPIXEL-STUDIO-.git"
+  },
+  "homepage": "https://novapixel.studio"
+}

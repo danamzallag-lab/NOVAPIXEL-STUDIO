@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création Site Web Professionnel | SEO Rapide | NovaPixel Studio</title>
+    <meta name="description" content="Création de sites web sur-mesure en 7 jours. Design moderne, SEO optimisé, performance garantie. 60% moins cher qu'une agence classique. Devis gratuit en 24h.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="NovaPixel Studio - Sites web sur-mesure">
+    <meta property="og:description" content="Création de sites web professionnels dès 790€. Livraison en 7 jours. SEO et performance inclus.">
+    <meta property="og:image" content="/assets/img/og-image.jpg">
+    <meta property="og:url" content="https://novapixel.studio">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NovaPixel Studio - Sites web sur-mesure">
+    <meta name="twitter:description" content="Création de sites web professionnels dès 790€. Livraison en 7 jours.">
+    <meta name="twitter:image" content="/assets/img/og-image.jpg">
+
+    <style>
+        /* Variables CSS - Mode sombre par défaut */
+        :root {
+            --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-solid: #667eea;
+            --secondary: #f093fb;
+            --accent: #4facfe;
+            --dark: #f7fafc;
+            --light: #111827;
+            --bg-light: #1f2937;
+            --gray: #9ca3af;
+            --gray-light: #374151;
+            --text-primary: #f3f4f6;
+            --text-secondary: #d1d5db;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --radius: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.4);
+            --shadow-lift: 0 15px 40px rgba(102,126,234,0.3);
+            --glass: rgba(17,24,39,0.95);
+            --glass-dark: rgba(26,32,44,0.95);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1200px;
+        }
+
+        /* Mode clair via classe .light */
+        html.light {
+            --dark: #1a202c;
+            --light: #ffffff;
+            --bg-light: #f8f9fa;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-lift: 0 15px 40px rgba(102,126,234,0.2);
+            --glass: rgba(255,255,255,0.98);
+        }
+
+        /* Reset et base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Skip to content */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-solid);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: var(--radius-sm);
+        }
+
+        .skip-link:focus {
+            top: 10px;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a[aria-current="page"]::after {
+            width: 100%;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-solid);
+            border: 2px solid var(--primary-solid);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border: 1px solid var(--gray-light);
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            height: 36px;
+            margin-left: 16px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-light);
+            transform: translateY(-1px);
+        }
+
+        .theme-toggle .theme-icon {
+            margin-right: 6px;
+            font-size: 1.1em;
+        }
+
+        .theme-text {
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .theme-text {
+                display: inline;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-solid);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Pricing */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card > p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card:not(.featured):hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.07);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: calc(100% - 4rem);
+            top: 2rem;
+            background: linear-gradient(to bottom, var(--primary-solid), var(--secondary));
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin: 0 2rem;
+            border: 1px solid var(--gray-light);
+        }
+
+        .timeline-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: var(--primary-solid);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 6px var(--light), 0 0 0 8px var(--primary-solid);
+            z-index: 2;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: var(--light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--gray-light);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102,126,234,0.8), rgba(118,75,162,0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            color: var(--primary-solid);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        /* Testimonials */
+        .testimonials-carousel {
+            max-width: 800px;
+            margin: 3rem auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+
+        .testimonials-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .author-role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gray);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-dot.active {
+            opacity: 1;
+            background: var(--primary-solid);
+            transform: scale(1.2);
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .faq-item {
+            background: var(--light);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            color: var(--text-primary);
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #667eea05 0%, #764ba205 100%);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-solid);
+            transition: var(--transition);
+        }
+
+        .faq-question[aria-expanded="true"]::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            overflow-x: auto;
+            margin-top: 3rem;
+        }
+
+        table {
+            width: 100%;
+            background: var(--light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+        }
+
+        th, td {
+            padding: 1.25rem;
+            text-align: left;
+            color: var(--text-primary);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        tr td:first-child {
+            font-weight: 500;
+        }
+
+        .check {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .cross {
+            color: var(--warning);
+            font-weight: bold;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+        }
+
+        .contact-form h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--light);
+            color: var(--text-primary);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-solid);
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+        }
+
+        /* Calendly */
+        .calendly-container {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .calendly-container h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .calendly-container > p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .calendly-inline-widget {
+            min-width: 100%;
+            height: 600px;
+            border-radius: var(--radius);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.05);
+            color: var(--text-primary);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-solid);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(102,126,234,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary-solid);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-light);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            z-index: 9999;
+            max-width: 500px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .cookie-banner p {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .cookie-banner.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--light);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            z-index: 10000;
+            min-width: 300px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .toast #toastMessage {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .toast.show {
+            display: block;
+            animation: slideInRight 0.5s ease;
+        }
+
+        .toast.success {
+            border-left: 4px solid var(--success);
+        }
+
+        .toast.error {
+            border-left: 4px solid #e53e3e;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Clients Trust Section */
+        .clients-trust {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .trust-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .clients-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba220 100%);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .client-logo:hover {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba240 100%);
+            color: var(--primary-solid);
+            transform: translateY(-2px);
+        }
+
+        /* Pack Benefits */
+        .pack-benefit {
+            background: linear-gradient(135deg, #48bb7810 0%, #48bb7820 100%);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        /* Feature Icons */
+        .feature-icon {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .features li {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Tooltips */
+        .tooltip {
+            position: relative;
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1000;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Portfolio Overlays */
+        .portfolio-overlay h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .btn-portfolio {
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-solid);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-portfolio:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        /* Portfolio Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: var(--light);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth Scrolling Offset */
+        .section-title {
+            scroll-margin-top: 100px;
+        }
+
+        /* Navigation Active State */
+        .nav-menu a[aria-current="page"] {
+            color: var(--primary-solid);
+            font-weight: 600;
+        }
+
+        /* Mobile Menu Improvements */
+        .nav-menu {
+            transition: var(--transition);
+        }
+
+        .nav-menu.active {
+            animation: slideInRight 0.3s ease;
+        }
+
+        /* Blog Section */
+        .blog-preview {
+            background: var(--bg-light);
+            padding: 4rem 0;
+        }
+
+        .blog-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+
+        .blog-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Certifications */
+        .certifications {
+            background: var(--light);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .cert-badge {
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background: var(--light);
+                flex-direction: column;
+                padding: 2rem;
+                border-radius: var(--radius);
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+                border: 1px solid var(--gray-light);
+            }
+
+            .nav-menu.active {
+                right: 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                margin-left: 40px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">NovaPixel Studio</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" aria-current="page">Accueil</a></li>
+                <li><a href="#why-us">Pourquoi nous</a></li>
+                <li><a href="#pricing">Tarifs</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="btn btn-primary">Obtenir un devis</a></li>
+            </ul>
+            <div style="display: flex; align-items: center;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Basculer le thème">
+                    <span class="theme-icon">🌙</span>
+                    <span class="theme-text">Nuit</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="main">
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                            <circle cx="50" cy="50" r="1" fill="rgba(102,126,234,0.3)" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#pattern)" />
+                </svg>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Création de Sites Web Professionnels<br>Plus vite, moins cher, sans compromis.</h1>
+                    <p class="hero-subtitle">Création de sites web professionnels en 7 jours. Design moderne, SEO optimisé, performance garantie. Sans les prix prohibitifs des agences traditionnelles.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Obtenir un devis gratuit</a>
+                        <a href="#portfolio" class="btn btn-secondary">Voir nos réalisations</a>
+                    </div>
+                    <!-- Logos clients -->
+                    <div class="clients-trust">
+                        <p class="trust-text">Ils nous font confiance :</p>
+                        <div class="clients-logos">
+                            <div class="client-logo">TechStart</div>
+                            <div class="client-logo">Maison Dubois</div>
+                            <div class="client-logo">Cabinet Legalis</div>
+                            <div class="client-logo">FitPro</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">4.9/5</span>
+                            <span class="stat-label">⭐⭐⭐⭐⭐ (36 avis)</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="7">0</span>
+                            <span class="stat-label">Jours en moyenne</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">60%</span>
+                            <span class="stat-label">Moins cher</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section class="section fade-in" id="why-us">
+            <div class="container">
+                <h2 class="section-title">Création de Sites Web Professionnels - Pourquoi nous choisir ?</h2>
+                <p class="section-subtitle">Une approche moderne qui révolutionne la création web</p>
+
+                <div class="cards-grid">
+                    <div class="card fade-in">
+                        <div class="card-icon">💰</div>
+                        <h3>Prix transparents</h3>
+                        <p>Pas de surprises ni de coûts cachés. Nos tarifs sont clairs dès le départ. Structure légère = économies pour vous. Jusqu'à 60% moins cher qu'une agence classique.</p>
+                    </div>
+                    <div class="card fade-in">
+                        <div class="card-icon">⚡</div>
+                        <h3>Livraison express</h3>
+                        <p>MVP en 7 jours ouvrés. Process optimisé et méthodologie agile. Pas de réunions interminables. Du brief à la mise en ligne en un temps record.</p>
+                    </div>
+                    <div class="card fade-in">
+                        <div class="card-icon">🎨</div>
+                        <h3>Design sur-mesure</h3>
+                        <p>Création 100% personnalisée. Pas de templates génériques. Votre identité visuelle unique. Code propriétaire léger et évolutif.</p>
+                    </div>
+                    <div class="card fade-in">
+                        <div class="card-icon">🚀</div>
+                        <h3>Performance & SEO</h3>
+                        <p>Score Lighthouse > 95. Temps de chargement < 2s. SEO technique intégré dès la conception. Vos clients vous trouvent facilement.</p>
+                    </div>
+                    <div class="card fade-in">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Support inclus</h3>
+                        <p>Formation à la prise en main. 30 jours de corrections garanties. Support technique réactif. Vous n'êtes jamais seul après la livraison.</p>
+                    </div>
+                    <div class="card fade-in">
+                        <div class="card-icon">📈</div>
+                        <h3>Orienté résultats</h3>
+                        <p>Focus sur la conversion et les leads. Analytics intégrés. A/B testing possible. Votre site devient un véritable outil commercial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <h2 class="section-title">Tarifs Sites Web - Nos offres adaptées à vos besoins</h2>
+                <p class="section-subtitle">Des formules claires, sans engagement, avec tout inclus</p>
+
+                <div class="pricing-cards">
+                    <div class="pricing-card fade-in">
+                        <h3>🚀 Starter</h3>
+                        <p class="price">1 500€ <span class="price-period">tout compris</span></p>
+                        <p>Landing page efficace pour tester votre marché</p>
+                        <div class="pack-benefit">📈 +25% de conversions en moyenne</div>
+                        <ul class="features">
+                            <li><span class="feature-icon">📱</span>1-3 sections optimisées</li>
+                            <li><span class="feature-icon">🎨</span>Design responsive</li>
+                            <li><span class="feature-icon">🔍</span>SEO de base</li>
+                            <li><span class="feature-icon">📧</span>Formulaire de contact</li>
+                            <li><span class="feature-icon">⚡</span>Livraison 5 jours</li>
+                            <li><span class="feature-icon">✏️</span>1 révision incluse</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Choisir Starter</a>
+                    </div>
+
+                    <div class="pricing-card featured fade-in">
+                        <span class="badge">Le plus choisi</span>
+                        <h3>💼 Business</h3>
+                        <p class="price">1 990€ <span class="price-period">tout compris</span></p>
+                        <p>Site vitrine complet pour votre activité</p>
+                        <div class="pack-benefit">📊 +40% de leads qualifiés</div>
+                        <ul class="features">
+                            <li><span class="feature-icon">📄</span>5-7 pages personnalisées</li>
+                            <li><span class="feature-icon">🎨</span>Design premium sur-mesure</li>
+                            <li><span class="feature-icon">🔍</span>SEO avancé & <span class="tooltip">Schema.org<span class="tooltip-text">Format de données structurées pour améliorer le référencement</span></span></li>
+                            <li><span class="feature-icon">✨</span>Animations & interactions</li>
+                            <li><span class="feature-icon">📈</span>Google Analytics</li>
+                            <li><span class="feature-icon">⚡</span>Livraison 7-10 jours</li>
+                            <li><span class="feature-icon">✏️</span>3 révisions incluses</li>
+                            <li><span class="feature-icon">🎓</span>Formation incluse</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Choisir Business</a>
+                    </div>
+
+                    <div class="pricing-card fade-in">
+                        <h3>📈 Growth</h3>
+                        <p class="price">3 900€ <span class="price-period">tout compris</span></p>
+                        <p>Solution complète pour votre croissance</p>
+                        <div class="pack-benefit">🚀 -35% taux de rebond garanti</div>
+                        <ul class="features">
+                            <li><span class="feature-icon">🌐</span>Site + Blog + CMS</li>
+                            <li><span class="feature-icon">🔍</span>SEO technique complet</li>
+                            <li><span class="feature-icon">🤖</span>Automatisations marketing</li>
+                            <li><span class="feature-icon">📧</span>Newsletter intégrée</li>
+                            <li><span class="feature-icon">🧪</span>A/B Testing</li>
+                            <li><span class="feature-icon">⚡</span>Livraison 10-15 jours</li>
+                            <li><span class="feature-icon">✏️</span>5 révisions incluses</li>
+                            <li><span class="feature-icon">🛡️</span>Support prioritaire 3 mois</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Choisir Growth</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Notre processus en 5 étapes</h2>
+                <p class="section-subtitle">De l'idée à la mise en ligne, un parcours fluide et transparent</p>
+
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>1. Découverte</h3>
+                            <p>Appel de 30min pour comprendre vos besoins, objectifs et contraintes. Brief créatif partagé.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>2. Devis détaillé</h3>
+                            <p>Proposition commerciale sous 24h. Prix fixe, délais garantis, livrables clairs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>3. Sprint design</h3>
+                            <p>Maquettes haute fidélité en 48h. Validation avant développement. 2 allers-retours inclus.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>4. Développement & QA</h3>
+                            <p>Codage sur-mesure, tests multi-appareils, optimisations performance. Aperçu en ligne.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>5. Mise en ligne</h3>
+                            <p>Déploiement sur votre hébergement. Formation d'1h incluse. Support 30 jours offert.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="section" id="portfolio">
+            <div class="container">
+                <h2 class="section-title">Nos dernières réalisations</h2>
+                <p class="section-subtitle">Des résultats concrets pour nos clients satisfaits</p>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop" alt="TechStart SaaS">
+                            <div class="portfolio-overlay">Voir le projet</div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>TechStart SaaS</h3>
+                            <p>Plateforme B2B • Fintech</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">+42% conversions</span>
+                                <span class="tag">LCP 0.9s</span>
+                                <span class="tag">Score SEO 100</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=300&fit=crop" alt="Maison Dubois - E-commerce décoration avec +35% de ventes" loading="lazy">
+                            <div class="portfolio-overlay">Voir le projet</div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Maison Dubois</h3>
+                            <p>E-commerce • Décoration</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">+35% ventes</span>
+                                <span class="tag">-50% taux rebond</span>
+                                <span class="tag">Mobile first</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=300&fit=crop" alt="Cabinet Legalis">
+                            <div class="portfolio-overlay">Voir le projet</div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Cabinet Legalis</h3>
+                            <p>Site vitrine • Juridique</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">+68% leads</span>
+                                <span class="tag">Top 3 Google</span>
+                                <span class="tag">A11y AAA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop" alt="FitPro Coach">
+                            <div class="portfolio-overlay">Voir le projet</div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>FitPro Coach</h3>
+                            <p>Landing • Sport & Santé</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">250 inscrits/mois</span>
+                                <span class="tag">CRO 8.2%</span>
+                                <span class="tag">PWA Ready</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=500&h=300&fit=crop" alt="Green Energy">
+                            <div class="portfolio-overlay">Voir le projet</div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Green Energy</h3>
+                            <p>Corporate • Énergie</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">+125% trafic</span>
+                                <span class="tag">15 mots-clés #1</span>
+                                <span class="tag">CLS 0.001</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=300&fit=crop" alt="L'Atelier Créatif">
+                            <div class="portfolio-overlay">Voir le projet</div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>L'Atelier Créatif</h3>
+                            <p>Portfolio • Design</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">+90% engagement</span>
+                                <span class="tag">Awwwards nominee</span>
+                                <span class="tag">60fps animations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Ils nous font confiance</h2>
+                <p class="section-subtitle">La satisfaction client est notre priorité absolue</p>
+
+                <div class="testimonials-carousel">
+                    <div class="testimonials-wrapper" id="testimonialsWrapper">
+                        <div class="testimonial">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-content">"NovaPixel a transformé notre présence en ligne. Site livré en 8 jours, résultats immédiats : +40% de demandes de devis dès le premier mois. Le rapport qualité-prix est imbattable."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Lambert">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Marie Lambert</div>
+                                    <div class="author-role">CEO, TechStart SaaS</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-content">"Enfin une agence qui tient ses promesses ! Site magnifique, ultra rapide, SEO au top. Mon chiffre d'affaires en ligne a doublé en 3 mois. Je recommande à 200%."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Thomas Dubois">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Thomas Dubois</div>
+                                    <div class="author-role">Fondateur, Maison Dubois</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-content">"Processus fluide, équipe réactive, résultat professionnel. Notre nouveau site génère 3x plus de prospects qualifiés. Le meilleur investissement digital de l'année."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sophie Martin">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Sophie Martin</div>
+                                    <div class="author-role">Associée, Cabinet Legalis</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-content">"J'ai économisé 5000€ par rapport aux devis d'agences classiques. Site livré en 6 jours, design moderne, performances excellentes. NovaPixel a dépassé toutes mes attentes."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Lucas Bernard">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Lucas Bernard</div>
+                                    <div class="author-role">Coach, FitPro Coach</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-content">"Expertise technique impressionnante. Notre score Lighthouse est passé de 45 à 98. Le trafic organique a explosé. ROI visible dès le 2ème mois. Bravo NovaPixel !"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Julien Moreau">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Julien Moreau</div>
+                                    <div class="author-role">Dir. Marketing, Green Energy</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-content">"Portfolio sublime qui reflète parfaitement mon travail. Les animations sont fluides, l'expérience utilisateur parfaite. Mes clients sont bluffés. Merci pour ce travail d'orfèvre !"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Petit">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Emma Petit</div>
+                                    <div class="author-role">Directrice, L'Atelier Créatif</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <span class="carousel-dot active" data-index="0"></span>
+                        <span class="carousel-dot" data-index="1"></span>
+                        <span class="carousel-dot" data-index="2"></span>
+                        <span class="carousel-dot" data-index="3"></span>
+                        <span class="carousel-dot" data-index="4"></span>
+                        <span class="carousel-dot" data-index="5"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog-preview">
+            <div class="container">
+                <h2 class="section-title">Articles & Conseils</h2>
+                <p class="section-subtitle">Nos derniers articles sur le web design et le SEO</p>
+
+                <div class="blog-cards">
+                    <div class="blog-card fade-in">
+                        <div class="blog-card-content">
+                            <span class="blog-tag">SEO</span>
+                            <h3 style="margin: 1rem 0 0.5rem 0;">10 conseils SEO pour 2025</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Les dernières techniques pour améliorer votre référencement naturel...</p>
+                            <a href="blog.html#seo" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Lire l'article</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card fade-in">
+                        <div class="blog-card-content">
+                            <span class="blog-tag">Performance</span>
+                            <h3 style="margin: 1rem 0 0.5rem 0;">Core Web Vitals expliqués</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Tout comprendre sur les métriques de performance Google...</p>
+                            <a href="blog.html#performance" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Lire l'article</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card fade-in">
+                        <div class="blog-card-content">
+                            <span class="blog-tag">Design</span>
+                            <h3 style="margin: 1rem 0 0.5rem 0;">Tendances UI/UX 2025</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Les tendances design qui vont marquer cette année...</p>
+                            <a href="blog.html#design" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Lire l'article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications">
+            <div class="container">
+                <h3 style="color: var(--text-secondary); margin-bottom: 1rem;">Certifiés & Partenaires</h3>
+                <div class="cert-badges">
+                    <div class="cert-badge">
+                        <strong>Google Partner</strong><br>
+                        <small>Analytics & Ads</small>
+                    </div>
+                    <div class="cert-badge">
+                        <strong>Vercel</strong><br>
+                        <small>Deployment Expert</small>
+                    </div>
+                    <div class="cert-badge">
+                        <strong>Lighthouse</strong><br>
+                        <small>Performance Score >95</small>
+                    </div>
+                    <div class="cert-badge">
+                        <strong>RGPD</strong><br>
+                        <small>Conforme</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" id="faq">
+            <div class="container">
+                <h2 class="section-title">Questions fréquentes</h2>
+                <p class="section-subtitle">L'essentiel à savoir avant de commencer</p>
+
+                <div class="faq-list">
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false">
+                            Quels sont vos délais garantis ?
+                        </button>
+                        <div class="faq-answer">
+                            <p>5 jours pour Starter, 7-10 jours pour Business, 10-15 jours pour Growth. Délais contractuels avec remise de 10% par jour de retard.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false">
+                            Pourquoi 60% moins cher qu'une agence ?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Structure légère, process optimisé, stack moderne. Nous investissons dans la qualité, pas dans les frais généraux.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false">
+                            Le SEO est-il vraiment inclus ?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oui. SEO technique complet, <span class="tooltip">Core Web Vitals<span class="tooltip-text">Métriques de performance essentielles pour Google (LCP, FID, CLS)</span></span> optimisés, score Lighthouse > 95 visé.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false">
+                            Puis-je modifier le site après ?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oui. Documentation fournie + formation 1h incluse. Pour Growth : CMS intégré. Vous restez 100% propriétaire du code.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Moins cher et plus rapide qu'une agence</h2>
+                <p class="section-subtitle">Comparaison objective avec les agences traditionnelles</p>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Critères</th>
+                                <th>NovaPixel Studio</th>
+                                <th>Agence classique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Prix site vitrine</td>
+                                <td><span class="check">1 990€ - 3 900€</span></td>
+                                <td><span class="cross">5 000€ - 15 000€</span></td>
+                            </tr>
+                            <tr>
+                                <td>Délai de livraison</td>
+                                <td><span class="check">7-15 jours</span></td>
+                                <td><span class="cross">6-12 semaines</span></td>
+                            </tr>
+                            <tr>
+                                <td>Propriété du code</td>
+                                <td><span class="check">✓ 100% à vous</span></td>
+                                <td><span class="cross">✗ Souvent limitée</span></td>
+                            </tr>
+                            <tr>
+                                <td>Stack moderne</td>
+                                <td><span class="check">✓ Vanilla JS optimisé</span></td>
+                                <td><span class="cross">✗ WordPress lourd</span></td>
+                            </tr>
+                            <tr>
+                                <td>SEO & Performance</td>
+                                <td><span class="check">✓ Inclus (Score > 95)</span></td>
+                                <td><span class="cross">✗ Option payante</span></td>
+                            </tr>
+                            <tr>
+                                <td>Support post-livraison</td>
+                                <td><span class="check">✓ 30 jours inclus</span></td>
+                                <td><span class="cross">✗ Facturé en plus</span></td>
+                            </tr>
+                            <tr>
+                                <td>Transparence devis</td>
+                                <td><span class="check">✓ Prix fixe garanti</span></td>
+                                <td><span class="cross">✗ Devis évolutif</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <h2 class="section-title">Démarrons votre projet</h2>
+                <p class="section-subtitle">Réponse sous 24h • Devis gratuit • Sans engagement</p>
+
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h3>Demande de devis</h3>
+                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                            <input type="hidden" name="access_key" value="cab41e4f-17e4-4f2c-bc0e-437ac6e8d6e1">
+                            <input type="hidden" name="subject" value="Nouvelle demande de devis NovaPixel Studio">
+                            <input type="hidden" name="from_name" value="Site NovaPixel Studio">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message">Ce champ est requis</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email professionnel *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message">Email invalide</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone">
+                                <span class="error-message">Numéro invalide</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">Budget estimé *</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Sélectionner...</option>
+                                    <option value="starter">Moins de 1 000€</option>
+                                    <option value="business">1 000€ - 3 000€</option>
+                                    <option value="growth">3 000€ - 5 000€</option>
+                                    <option value="custom">Plus de 5 000€</option>
+                                </select>
+                                <span class="error-message">Ce champ est requis</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timeline">Délai souhaité *</label>
+                                <select id="timeline" name="timeline" required>
+                                    <option value="">Sélectionner...</option>
+                                    <option value="urgent">Urgent (< 1 semaine)</option>
+                                    <option value="normal">Normal (2-3 semaines)</option>
+                                    <option value="flexible">Flexible (1 mois+)</option>
+                                </select>
+                                <span class="error-message">Ce champ est requis</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Décrivez votre projet *</label>
+                                <textarea id="message" name="message" required></textarea>
+                                <span class="error-message">Ce champ est requis</span>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="specs" name="specs">
+                                <label for="specs">J'ai un cahier des charges</label>
+                            </div>
+
+                            <!-- Honeypot anti-spam -->
+                            <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                                Envoyer ma demande
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="calendly-container">
+                        <h3>Réserver un appel découverte</h3>
+                        <p>Préférez discuter de vive voix ? Réservez un créneau de 15 minutes avec notre équipe.</p>
+                        <div style="height: 20px;"></div>
+                        <a href="https://calendly.com/danamzallag4/30min" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">
+                            Choisir un créneau →
+                        </a>
+                        <div style="margin-top: 2rem; padding: 1rem; background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); border-radius: 8px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">
+                                💡 <strong>Conseil :</strong> Préparez vos questions et exemples de sites que vous aimez pour optimiser notre échange.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NovaPixel Studio</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Création de sites web sur-mesure. Plus vite, moins cher, sans compromis.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#pricing">Landing Page</a>
+                    <a href="#pricing">Site Vitrine</a>
+                    <a href="#pricing">E-commerce</a>
+                    <a href="#pricing">Refonte Web</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Entreprise</h3>
+                    <a href="#why-us">À propos</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#testimonials">Témoignages</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Légal</h3>
+                    <a href="/mentions-legales.html">Mentions légales</a>
+                    <a href="/cgv.html">CGV</a>
+                    <a href="/confidentialite.html">Politique de confidentialité</a>
+                    <a href="/cookies.html">Cookies</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 NovaPixel Studio. Tous droits réservés. Made with ❤️ in France</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p><strong>🍪 Cookies</strong><br>
+        Nous utilisons des cookies pour améliorer votre expérience. Aucun tracker tiers par défaut.</p>
+        <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+            <button class="btn btn-primary" onclick="acceptCookies()">Accepter</button>
+            <button class="btn btn-secondary" onclick="declineCookies()">Refuser</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <p id="toastMessage"></p>
+    </div>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebDesignAgency",
+        "name": "NovaPixel Studio",
+        "description": "Création de sites web professionnels sur-mesure. SEO optimisé, performance garantie, livraison en 7 jours. 60% moins cher qu'une agence classique.",
+        "url": "https://novapixel.studio",
+        "telephone": "+33612345678",
+        "email": "contact@novapixel.studio",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lyon",
+            "addressCountry": "FR"
+        },
+        "priceRange": "€€",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "36",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "serviceArea": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services de création de sites web",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Landing Page - Pack Starter",
+                        "description": "Landing page efficace pour tester votre marché"
+                    },
+                    "price": "1500",
+                    "priceCurrency": "EUR"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Site Vitrine - Pack Business",
+                        "description": "Site vitrine complet pour votre activité"
+                    },
+                    "price": "1990",
+                    "priceCurrency": "EUR"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Solution Complète - Pack Growth",
+                        "description": "Solution complète pour votre croissance"
+                    },
+                    "price": "3900",
+                    "priceCurrency": "EUR"
+                }
+            ]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Création de sites web professionnels",
+        "provider": {
+            "@type": "Organization",
+            "name": "NovaPixel Studio"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services web",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "SEO Optimisation",
+                        "description": "SEO technique complet, Core Web Vitals optimisés"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Design Responsive",
+                        "description": "Design moderne adapté à tous les appareils"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://novapixel.studio/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://novapixel.studio/#why-us"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Tarifs",
+                "item": "https://novapixel.studio/#pricing"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Portfolio",
+                "item": "https://novapixel.studio/#portfolio"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Contact",
+                "item": "https://novapixel.studio/#contact"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quels sont vos délais de livraison réels ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nos délais sont garantis contractuellement : 5 jours pour une landing (Starter), 7-10 jours pour un site vitrine (Business), 10-15 jours pour une solution complète (Growth)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment justifiez-vous des prix 60% moins chers ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Structure légère, process optimisé, stack technique moderne, pas d'intermédiaires. Nous investissons dans la qualité du travail, pas dans les frais généraux."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Portfolio Modal -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalContent">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module">
+        // Configuration
+        const SITE_CONFIG = {
+            brand: 'NovaPixel Studio',
+            slogan: 'Sites web sur-mesure. Plus vite, moins cher, sans compromis.',
+            formEndpoint: 'https://formspree.io/f/YOUR_FORM_ID', // À remplacer
+            calendlyUrl: 'https://calendly.com/danamzallag4/30min',
+            social: {
+                linkedin: 'https://linkedin.com/company/novapixel',
+                twitter: 'https://twitter.com/novapixel',
+                instagram: 'https://instagram.com/novapixel',
+                github: 'https://github.com/novapixel'
+            }
+        };
+
+        // Theme Management
+        function initThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('.theme-icon');
+            const themeText = themeToggle.querySelector('.theme-text');
+
+            // Get initial theme (dark par défaut)
+            function getInitialTheme() {
+                const stored = localStorage.getItem('theme');
+                if (stored) return stored;
+                // Par défaut, on est en mode sombre
+                return 'dark';
+            }
+
+            // Apply theme
+            function applyTheme(theme) {
+                const html = document.documentElement;
+                if (theme === 'light') {
+                    html.classList.add('light');
+                    themeIcon.textContent = '☀︎';
+                    themeText.textContent = 'Jour';
+                } else {
+                    html.classList.remove('light');
+                    themeIcon.textContent = '🌙';
+                    themeText.textContent = 'Nuit';
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            // Toggle theme
+            function toggleTheme() {
+                const currentTheme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                applyTheme(newTheme);
+            }
+
+            // Initialize
+            applyTheme(getInitialTheme());
+
+            // Event listener
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+
+        // Smooth Scroll
+        function smoothScroll() {
+            document.querySelectorAll('a[href^="#"]:not([href*=".html"])').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Mobile Menu Toggle
+        function initMobileMenu() {
+            const toggle = document.getElementById('mobileMenuToggle');
+            const menu = document.getElementById('navMenu');
+
+            if (toggle && menu) {
+                toggle.addEventListener('click', () => {
+                    menu.classList.toggle('active');
+                    toggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
+                });
+            }
+        }
+
+        // Intersection Observer for animations
+        function inViewAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        // Remove visible class when element leaves viewport to allow re-triggering
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Parallax Hero Effect
+        function parallaxHero() {
+            const hero = document.querySelector('.hero-bg');
+            if (!hero) return;
+
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.5;
+                hero.style.transform = `translateY(${parallax}px)`;
+            });
+        }
+
+        // Count Up Animation
+        function countUp() {
+            const counters = document.querySelectorAll('[data-target]');
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                updateCounter();
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (!entry.target.classList.contains('counted')) {
+                            animateCounter(entry.target);
+                            entry.target.classList.add('counted');
+                        }
+                    } else {
+                        // Reset counter when leaving viewport to allow re-triggering
+                        entry.target.classList.remove('counted');
+                        entry.target.textContent = '0';
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Testimonials Carousel
+        function carouselTestimonials() {
+            const wrapper = document.getElementById('testimonialsWrapper');
+            const dots = document.querySelectorAll('.carousel-dot');
+            if (!wrapper || !dots.length) return;
+
+            let currentIndex = 0;
+            let autoplayInterval;
+
+            function goToSlide(index) {
+                currentIndex = index;
+                wrapper.style.transform = `translateX(-${index * 100}%)`;
+
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % dots.length;
+                goToSlide(currentIndex);
+            }
+
+            function startAutoplay() {
+                autoplayInterval = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    stopAutoplay();
+                    startAutoplay();
+                });
+            });
+
+            wrapper.addEventListener('mouseenter', stopAutoplay);
+            wrapper.addEventListener('mouseleave', startAutoplay);
+
+            // Touch/Swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            wrapper.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            wrapper.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    nextSlide();
+                }
+                if (touchEndX > touchStartX + 50) {
+                    currentIndex = (currentIndex - 1 + dots.length) % dots.length;
+                    goToSlide(currentIndex);
+                }
+            }
+
+            startAutoplay();
+        }
+
+        // FAQ Accordion
+        function initFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = question.getAttribute('aria-expanded') === 'true';
+
+                    // Close all other FAQs
+                    questions.forEach(q => {
+                        if (q !== question) {
+                            q.setAttribute('aria-expanded', 'false');
+                            q.nextElementSibling.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current FAQ
+                    question.setAttribute('aria-expanded', !isOpen);
+                    answer.classList.toggle('active');
+                });
+            });
+        }
+
+        // Form Validation
+        function validateForm() {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+
+            function showError(input, message) {
+                const errorElement = input.parentElement.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.add('show');
+                    input.style.borderColor = '#e53e3e';
+                }
+            }
+
+            function hideError(input) {
+                const errorElement = input.parentElement.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.classList.remove('show');
+                    input.style.borderColor = 'var(--gray-light)';
+                }
+            }
+
+            function validateField(input) {
+                const value = input.value.trim();
+
+                if (input.hasAttribute('required') && !value) {
+                    showError(input, 'Ce champ est requis');
+                    return false;
+                }
+
+                if (input.type === 'email' && value && !emailRegex.test(value)) {
+                    showError(input, 'Email invalide');
+                    return false;
+                }
+
+                if (input.type === 'tel' && value && !phoneRegex.test(value)) {
+                    showError(input, 'Numéro de téléphone invalide');
+                    return false;
+                }
+
+                hideError(input);
+                return true;
+            }
+
+            // Real-time validation
+            form.querySelectorAll('input, select, textarea').forEach(field => {
+                field.addEventListener('blur', () => validateField(field));
+                field.addEventListener('input', () => {
+                    if (field.parentElement.querySelector('.error-message.show')) {
+                        validateField(field);
+                    }
+                });
+            });
+
+            return {
+                validateField,
+                validateAll: () => {
+                    let isValid = true;
+                    form.querySelectorAll('input, select, textarea').forEach(field => {
+                        if (!validateField(field)) {
+                            isValid = false;
+                        }
+                    });
+                    return isValid;
+                }
+            };
+        }
+
+        // Submit Form
+        async function submitForm(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const validator = validateForm();
+
+            // Check honeypot
+            const honeypot = form.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value) {
+                return; // Bot detected
+            }
+
+            // Validate all fields
+            if (!validator.validateAll()) {
+                showToast('Veuillez corriger les erreurs dans le formulaire', 'error');
+                return;
+            }
+
+            // Check submission time (anti-spam)
+            if (!window.formLoadTime) {
+                window.formLoadTime = Date.now();
+            }
+
+            if (Date.now() - window.formLoadTime < 2000) {
+                showToast('Veuillez patienter avant d\'envoyer', 'error');
+                return;
+            }
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+
+            // Prepare form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            delete data.website; // Remove honeypot field
+
+            try {
+                // Submit to Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    showToast('Merci ! Nous vous recontactons sous 24h.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Erreur serveur');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showToast('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Envoyer ma demande';
+            }
+        }
+
+        // Toast Notifications
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+
+            if (!toast || !toastMessage) return;
+
+            toastMessage.textContent = message;
+            toast.className = `toast show ${type}`;
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        // Cookie Banner
+        function initCookieBanner() {
+            const banner = document.getElementById('cookieBanner');
+            if (!banner) return;
+
+            // Check if cookies were already accepted/declined
+            if (!localStorage.getItem('cookiesConsent')) {
+                setTimeout(() => {
+                    banner.classList.add('show');
+                }, 2000);
+            }
+        }
+
+        window.acceptCookies = function() {
+            localStorage.setItem('cookiesConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.remove('show');
+            showToast('Préférences cookies enregistrées', 'success');
+        };
+
+        window.declineCookies = function() {
+            localStorage.setItem('cookiesConsent', 'declined');
+            document.getElementById('cookieBanner').classList.remove('show');
+            showToast('Cookies refusés', 'success');
+        };
+
+        // Update active navigation on scroll
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (window.pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.removeAttribute('aria-current');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.setAttribute('aria-current', 'page');
+                    }
+                });
+            });
+        }
+
+        // Portfolio Modal Functions
+        window.openModal = function(projectId) {
+            const modal = document.getElementById('portfolioModal');
+            const modalContent = document.getElementById('modalContent');
+
+            const projects = {
+                'techstart': {
+                    title: 'TechStart SaaS',
+                    description: 'Plateforme B2B Fintech',
+                    details: 'Conception et développement d\'une plateforme SaaS complète pour la gestion financière. Augmentation de 42% des conversions grâce à un design optimisé et une UX fluide.',
+                    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe API'],
+                    results: ['+42% conversions', 'LCP 0.9s', 'Score SEO 100']
+                }
+            };
+
+            const project = projects[projectId];
+            if (project) {
+                modalContent.innerHTML = `
+                    <h2>${project.title}</h2>
+                    <p><strong>${project.description}</strong></p>
+                    <p>${project.details}</p>
+                    <h3>Technologies utilisées :</h3>
+                    <div class="tech-stack">
+                        ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    <h3>Résultats :</h3>
+                    <div class="results">
+                        ${project.results.map(result => `<span class="result-tag">${result}</span>`).join('')}
+                    </div>
+                `;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closeModal = function() {
+            const modal = document.getElementById('portfolioModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('portfolioModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Enhanced scroll offset for sections
+        function enhancedScrollOffset() {
+            const sections = document.querySelectorAll('section[id]');
+            sections.forEach(section => {
+                section.style.scrollMarginTop = '100px';
+            });
+        }
+
+        // Lazy loading for images
+        function implementLazyLoading() {
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src || img.src;
+                            img.classList.remove('lazy');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        }
+
+        // Animation reset for navigation (back/forward)
+        function initNavigationReset() {
+            // Reset animations on popstate (back/forward navigation)
+            window.addEventListener('popstate', () => {
+                // Reset all fade-in elements
+                document.querySelectorAll('.fade-in.visible').forEach(el => {
+                    el.classList.remove('visible');
+                });
+
+                // Reset all counters
+                document.querySelectorAll('[data-target].counted').forEach(counter => {
+                    counter.classList.remove('counted');
+                    counter.textContent = '0';
+                });
+
+                // Re-trigger animations after a short delay
+                setTimeout(() => {
+                    inViewAnimations();
+                    countUp();
+                }, 100);
+            });
+        }
+
+        // Initialize everything on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            initThemeToggle();
+            smoothScroll();
+            initMobileMenu();
+            inViewAnimations();
+            parallaxHero();
+            countUp();
+            carouselTestimonials();
+            initFAQ();
+            validateForm();
+            initCookieBanner();
+            updateActiveNav();
+            enhancedScrollOffset();
+            implementLazyLoading();
+            initNavigationReset();
+
+            // Set form load time for anti-spam
+            window.formLoadTime = Date.now();
+
+            // Attach form submit handler
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', submitForm);
+            }
+
+            console.log('NovaPixel Studio - Site initialized successfully');
+        });
+
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                const perfData = window.performance.timing;
+                const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                console.log(`Page load time: ${pageLoadTime}ms`);
+            });
+        }
+    </script>
+</body>
+</html>

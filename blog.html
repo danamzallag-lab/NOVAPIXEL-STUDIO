@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design & SEO 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Mode Tech -->
+    <!-- Application Structure Plan: La structure de l'application est conçue comme un tableau de bord thématique, avec une navigation claire pour basculer entre les trois sujets distincts de l'image (SEO, Performance, Design). Cette approche par onglets a été choisie pour permettre à l'utilisateur de se concentrer sur un seul domaine à la fois, évitant ainsi la surcharge d'informations. Chaque section est conçue pour être interactive : une liste déroulante pour les conseils SEO, des jauges visuelles pour les Core Web Vitals, et une grille cliquable pour les tendances UI/UX. Le flux utilisateur est simple : sélectionner un sujet, puis interagir avec les éléments pour explorer les détails. -->
+    <!-- Visualization & Content Choices:
+    - 10 Conseils SEO -> Goal: Présenter une liste de conseils de manière digeste -> Viz: Liste interactive (HTML/CSS/JS) -> Interaction: Clic sur un conseil pour afficher le détail. Justification: Une liste extensible est plus propre et moins intimidante qu'un long texte, encourageant l'exploration pas à pas.
+    - Core Web Vitals -> Goal: Expliquer des métriques techniques simplement -> Viz: Bar Charts horizontaux servant de jauges (Chart.js) -> Interaction: Visuelle, les couleurs indiquent les seuils (bon, à améliorer, mauvais). Justification: Une jauge visuelle est très efficace pour communiquer des seuils de performance et rendre des données abstraites concrètes.
+    - Tendances UI/UX -> Goal: Montrer les tendances de design de manière visuelle et engageante -> Viz: Grille de cartes interactive (HTML/CSS/JS) -> Interaction: Clic sur une carte pour afficher une description détaillée. Justification: Une grille est parfaite pour présenter des concepts visuels et l'interaction de clic rend la découverte plus active.
+    Toutes les visualisations utilisent Canvas via Chart.js ou du HTML/CSS/JS pur. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #E5E7EB;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+            border: 1px solid #374151;
+        }
+        .nav-button.active {
+            background-color: #4F46E5;
+            color: #FFFFFF;
+            border-color: #4F46E5;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 60px;
+        }
+        .seo-item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .seo-item.open .seo-item-content {
+            max-height: 200px;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        .seo-item .arrow {
+             transition: transform 0.3s ease;
+        }
+        .seo-item.open .arrow {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Nos derniers articles sur le web design et le SEO</h1>
+            <p class="text-lg text-gray-400">Explorez les dernières tendances et techniques pour 2025</p>
+        </header>
+
+        <nav class="flex justify-center items-center gap-2 md:gap-4 mb-8 md:mb-12 flex-wrap">
+            <button data-target="seo" class="nav-button text-sm md:text-base font-semibold py-3 px-6 rounded-full hover:bg-gray-700">
+                SEO
+            </button>
+            <button data-target="performance" class="nav-button text-sm md:text-base font-semibold py-3 px-6 rounded-full hover:bg-gray-700">
+                Performance
+            </button>
+            <button data-target="design" class="nav-button text-sm md:text-base font-semibold py-3 px-6 rounded-full hover:bg-gray-700">
+                Design
+            </button>
+        </nav>
+
+        <main>
+            <!-- Section SEO -->
+            <section id="seo" class="content-section">
+                <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-white mb-2">10 conseils SEO pour 2025</h2>
+                    <p class="text-gray-400 mb-6">Les dernières techniques pour améliorer votre référencement naturel. Cliquez sur chaque conseil pour en savoir plus.</p>
+                    <div id="seo-list" class="space-y-3">
+                        <!-- Les conseils SEO seront injectés ici par JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Performance -->
+            <section id="performance" class="content-section">
+                <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-white mb-2">Core Web Vitals expliqués</h2>
+                    <p class="text-gray-400 mb-6">Tout comprendre sur les métriques de performance de Google qui impactent votre classement et l'expérience utilisateur.</p>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">LCP <span class="text-sm font-normal text-gray-400">(Largest Contentful Paint)</span></h3>
+                            <p class="text-gray-400 text-sm mb-3">Mesure la vitesse de chargement perçue. C'est le temps nécessaire pour que le plus grand élément visible de la page s'affiche.</p>
+                            <div class="chart-container"><canvas id="lcpChart"></canvas></div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">INP <span class="text-sm font-normal text-gray-400">(Interaction to Next Paint)</span></h3>
+                            <p class="text-gray-400 text-sm mb-3">Mesure la réactivité de la page. C'est le temps que met la page à réagir à une interaction de l'utilisateur (clic, etc.).</p>
+                            <div class="chart-container"><canvas id="inpChart"></canvas></div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">CLS <span class="text-sm font-normal text-gray-400">(Cumulative Layout Shift)</span></h3>
+                            <p class="text-gray-400 text-sm mb-3">Mesure la stabilité visuelle. Un score bas signifie que les éléments de la page ne bougent pas de manière inattendue pendant le chargement.</p>
+                            <div class="chart-container"><canvas id="clsChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Design -->
+            <section id="design" class="content-section">
+                <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-white mb-2">Tendances UI/UX 2025</h2>
+                    <p class="text-gray-400 mb-6">Les tendances design qui vont marquer cette année. Cliquez sur une tendance pour afficher sa description.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-wrap gap-4" id="trends-grid">
+                             <!-- Les tendances seront injectées ici par JS -->
+                        </div>
+                        <div id="trend-details" class="bg-gray-900 p-6 rounded-lg min-h-[200px] flex flex-col justify-center">
+                            <h3 id="trend-title" class="text-xl font-bold text-white mb-2">Sélectionnez une tendance</h3>
+                            <p id="trend-description" class="text-gray-400">Cliquez sur un des éléments à gauche pour voir les détails ici.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+            let charts = {};
+
+            const seoData = [
+                { title: "Prioriser l'Expérience Utilisateur (UX)", content: "Google privilégie les sites offrant une navigation fluide et intuitive. Optimisez la vitesse, la lisibilité et la structure de votre site pour retenir les visiteurs." },
+                { title: "Contenu Guidé par l'IA et SGE", content: "Avec l'arrivée de la Search Generative Experience (SGE), créez du contenu qui répond directement à des questions complexes et qui peut être utilisé par les IA pour générer des réponses." },
+                { title: "Construire une Autorité Thématique", content: "Ne vous contentez pas de mots-clés. Créez des groupes de contenus (topic clusters) qui couvrent un sujet en profondeur pour devenir une référence dans votre domaine." },
+                { title: "E-E-A-T : la Confiance avant tout", content: "Experience, Expertise, Authoritativeness, Trustworthiness. Prouvez votre légitimité avec des études de cas, des témoignages et des informations vérifiables." },
+                { title: "Optimisation pour la Recherche Vocale et Visuelle", content: "Les gens recherchent de plus en plus avec leur voix et des images. Structurez votre contenu en langage naturel et optimisez vos images avec des balises alt descriptives." },
+                { title: "Le SEO Technique Reste Fondamental", content: "Un site rapide, sécurisé (HTTPS), mobile-friendly et avec un code propre est la base sur laquelle toute stratégie de contenu doit reposer." },
+                { title: "Backlinks de Haute Qualité", content: "La qualité prime sur la quantité. Un seul lien provenant d'un site d'autorité a plus de valeur que des dizaines de liens de faible qualité." },
+                { title: "La Vidéo, un Levier Puissant", content: "Optimisez vos vidéos pour YouTube et intégrez-les dans votre contenu. Les vidéos augmentent le temps de session et peuvent apparaître dans les résultats de recherche." },
+                { title: "Données Structurées (Schema.org)", content: "Aidez Google à comprendre votre contenu en utilisant le balisage Schema. Cela peut améliorer votre apparence dans les SERPs avec des rich snippets." },
+                { title: "Focus sur le SEO Local", content: "Pour les entreprises physiques, optimiser votre fiche Google Business Profile et obtenir des avis locaux est plus important que jamais." }
+            ];
+
+            const trendsData = [
+                { id: 'bento', title: 'Grilles Bento', description: 'Inspirées des boîtes à lunch japonaises, les grilles Bento organisent l\'information dans une structure modulaire et visuellement attrayante, parfaite pour les tableaux de bord et les portfolios.' },
+                { id: 'ai', title: 'Personnalisation par l\'IA', description: 'Les interfaces s\'adaptent dynamiquement à chaque utilisateur en fonction de son comportement, offrant une expérience unique et ultra-pertinente.' },
+                { id: 'spatial', title: 'Design Spatial et 3D', description: 'Avec l\'avènement des casques de réalité mixte, les interfaces sortent de l\'écran pour devenir des environnements immersifs avec lesquels l\'utilisateur interagit.' },
+                { id: 'kinetic', title: 'Typographie Cinétique', description: 'Le texte n\'est plus statique. Il bouge, réagit et guide l\'attention de l\'utilisateur, ajoutant une couche de dynamisme et de narration à l\'interface.' },
+                { id: 'minimalism', title: 'Minimalisme avec Personnalité', description: 'Des interfaces épurées qui ne sont pas ennuyeuses. L\'utilisation audacieuse de la couleur, d\'une typographie unique et de micro-interactions crée une identité forte.' },
+                { id: 'micro', title: 'Micro-interactions Avancées', description: 'Des retours subtils et satisfaisants pour chaque action utilisateur. Un bouton qui réagit, une icône qui s\'anime... Ces détails améliorent considérablement l\'expérience.' },
+            ];
+
+            // Fonction pour détecter l'ancre dans l'URL et activer le bon onglet
+            function getActiveTabFromURL() {
+                const hash = window.location.hash.substring(1); // Retire le #
+                const validTabs = ['seo', 'performance', 'design'];
+                return validTabs.includes(hash) ? hash : 'seo'; // Par défaut: seo
+            }
+
+            function activateSection(targetId) {
+                navButtons.forEach(b => b.classList.toggle('active', b.dataset.target === targetId));
+                contentSections.forEach(s => s.classList.toggle('active', s.id === targetId));
+
+                if (targetId === 'performance' && !charts.lcp) {
+                    renderCoreWebVitalsCharts();
+                }
+
+                // Mettre à jour l'URL sans recharger la page
+                window.history.replaceState(null, null, '#' + targetId);
+            }
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => activateSection(button.dataset.target));
+            });
+
+            // Écouter les changements d'ancre dans l'URL
+            window.addEventListener('hashchange', function() {
+                const activeTab = getActiveTabFromURL();
+                activateSection(activeTab);
+            });
+
+            function renderCoreWebVitalsCharts() {
+                const baseOptions = {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { display: false, max: 4.5 },
+                        y: { display: false }
+                    },
+                    plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                    layout: { padding: 0 }
+                };
+
+                const createGradient = (context, colors) => {
+                    const chart = context.chart;
+                    const { ctx, chartArea } = chart;
+                    if (!chartArea) {
+                        return null;
+                    }
+                    const gradient = ctx.createLinearGradient(0, 0, chartArea.right, 0);
+                    gradient.addColorStop(0, colors[0]);
+                    gradient.addColorStop(0.5, colors[1]);
+                    gradient.addColorStop(1, colors[2]);
+                    return gradient;
+                };
+
+                charts.lcp = new Chart(document.getElementById('lcpChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['LCP'],
+                        datasets: [{
+                            data: [2.5],
+                            backgroundColor: (context) => createGradient(context, ['#22C55E', '#FBBF24', '#EF4444']),
+                            borderColor: '#374151',
+                            borderWidth: 1,
+                            borderRadius: 5,
+                            barPercentage: 1,
+                            categoryPercentage: 1,
+                        }, {
+                            data: [4],
+                            backgroundColor: 'transparent',
+                        }]
+                    },
+                    options: { ...baseOptions, scales: { x: { display: false, max: 4.5 } } }
+                });
+
+                charts.inp = new Chart(document.getElementById('inpChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['INP'],
+                        datasets: [{
+                            data: [200],
+                            backgroundColor: (context) => createGradient(context, ['#22C55E', '#FBBF24', '#EF4444']),
+                            borderColor: '#374151',
+                            borderWidth: 1,
+                            borderRadius: 5,
+                            barPercentage: 1,
+                            categoryPercentage: 1,
+                        }, {
+                            data: [500],
+                             backgroundColor: 'transparent',
+                        }]
+                    },
+                    options: { ...baseOptions, scales: { x: { display: false, max: 550 } } }
+                });
+
+                charts.cls = new Chart(document.getElementById('clsChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['CLS'],
+                        datasets: [{
+                            data: [0.1],
+                            backgroundColor: (context) => createGradient(context, ['#22C55E', '#FBBF24', '#EF4444']),
+                            borderColor: '#374151',
+                            borderWidth: 1,
+                            borderRadius: 5,
+                            barPercentage: 1,
+                            categoryPercentage: 1,
+                        }, {
+                            data: [0.25],
+                             backgroundColor: 'transparent',
+                        }]
+                    },
+                    options: { ...baseOptions, scales: { x: { display: false, max: 0.3 } } }
+                });
+            }
+
+            function initSEO() {
+                const container = document.getElementById('seo-list');
+                container.innerHTML = seoData.map((item, index) => `
+                    <div class="seo-item bg-gray-900 rounded-lg">
+                        <div class="seo-item-header flex justify-between items-center p-4 cursor-pointer">
+                            <h3 class="font-semibold text-white">${index + 1}. ${item.title}</h3>
+                            <span class="arrow text-indigo-400 font-bold text-xl">&#x276F;</span>
+                        </div>
+                        <div class="seo-item-content px-4 text-gray-400 text-sm">
+                            <p>${item.content}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                container.addEventListener('click', e => {
+                    const header = e.target.closest('.seo-item-header');
+                    if (header) {
+                        header.parentElement.classList.toggle('open');
+                    }
+                });
+            }
+
+            function initTrends() {
+                const grid = document.getElementById('trends-grid');
+                grid.innerHTML = trendsData.map(trend => `
+                    <button data-id="${trend.id}" class="trend-button text-left w-full md:w-auto flex-grow bg-gray-800 border border-gray-700 p-4 rounded-lg hover:bg-gray-700 hover:border-indigo-500 transition-colors">
+                        <h4 class="font-bold text-white">${trend.title}</h4>
+                    </button>
+                `).join('');
+
+                const titleEl = document.getElementById('trend-title');
+                const descEl = document.getElementById('trend-description');
+
+                grid.addEventListener('click', e => {
+                    const button = e.target.closest('.trend-button');
+                    if (button) {
+                        const trend = trendsData.find(t => t.id === button.dataset.id);
+                        if (trend) {
+                            titleEl.textContent = trend.title;
+                            descEl.textContent = trend.description;
+                        }
+                    }
+                });
+            }
+
+            initSEO();
+            initTrends();
+
+            // Activer l'onglet basé sur l'URL au chargement de la page
+            const initialTab = getActiveTabFromURL();
+            activateSection(initialTab);
+        });
+    </script>
+</body>
+</html>
